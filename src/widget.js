@@ -1,3 +1,34 @@
+ const dropArea = document.querySelector(".blst-drag-area"),
+        dragText = dropArea.querySelector(".blst-title"),
+        button = dropArea.querySelector(".blst-button"),
+        input = dropArea.querySelector(".blst-input");
+      let blstFile; //this is a global variable and we'll use it inside multiple functions
+
+      input.addEventListener("change", (event) => {
+        //getting user select file and [0] this means if user select multiple files then we'll select only the first one
+        blstFile = event.target.files[0];
+        dropArea.classList.add("active");
+        showFile();
+      });
+      //If user Drag File Over DropArea
+      dropArea.addEventListener("dragover", (event) => {
+        event.preventDefault();
+        dropArea.classList.add("active");
+        dragText.textContent = "Release to Upload File";
+      });
+      //If user leave dragged File from DropArea
+      dropArea.addEventListener("dragleave", () => {
+        dropArea.classList.remove("active");
+        dragText.textContent = "+ Drag & Drop";
+      });
+      //If user drop File on DropArea
+      dropArea.addEventListener("drop", (event) => {
+        event.preventDefault();
+        //getting user select file and [0] this means if user select multiple files then we'll select only the first one
+        blstFile = event.dataTransfer.files[0];
+        showFile();
+      });
+
 export function showFile(domain) {
         let fileType = blstFile.type;
         let validExtensions = ["application/json"];
