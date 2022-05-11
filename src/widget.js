@@ -29,7 +29,7 @@
         showFile();
       });
 
-export function showFile(domain) {
+function showFile() {
         let fileType = blstFile.type;
         let validExtensions = ["application/json"];
         if (validExtensions.includes(fileType)) {
@@ -49,7 +49,7 @@ export function showFile(domain) {
               }).then((response) => response.json()).then((data) => {
             let tmp = dropArea.innerHTML;
              const a = document.createElement("a");
-                        a.href = `https://www.blstsecurity.com/ScanSwagger/${data.scan_id}?tab=Overview&promo=apibrief#${domain}`;
+                        a.href = `https://www.blstsecurity.com/ScanSwagger/${data.scan_id}?tab=Overview&promo=apibrief#${document.referrer}`;
                         a.target = "_blank";
                         a.rel = "noopener noreferrer";
                         document.body.appendChild(a);
