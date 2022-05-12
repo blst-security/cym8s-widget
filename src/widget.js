@@ -49,7 +49,7 @@ function showFile() {
               }).then((response) => response.json()).then((data) => {
             let tmp = dropArea.innerHTML;
              const a = document.createElement("a");
-                        a.href = `https://www.blstsecurity.com/ScanSwagger/${data.scan_id}?tab=Overview&promo=apibrief#${document.referrer}`;
+                        a.href = `https://www.blstsecurity.com/ScanSwagger/${data.scan_id}?tab=Overview&promo=apibrief#${document.location.origin}`;
                         a.target = "_blank";
                         a.rel = "noopener noreferrer";
                         document.body.appendChild(a);
