@@ -37,7 +37,7 @@ function showFile() {
     } else {
         let reader = new FileReader();
         reader.onload = (event) => {
-            let oas = JSON.parse(event.target.result);
+            let oas = event.target.result;
             fetch("https://idk.blstsecurity.com/create_scan", {
                 method: "POST",
                 body: JSON.stringify({ oas }),
