@@ -49,6 +49,9 @@ function showFile() {
                 document.body.appendChild(a);
                 a.click();
                 a.remove();
+                dropArea.classList.remove("active");
+                dragText.textContent = "+ Drag & Drop";
+                blstFile = undefined;
             });
             let successHtml = `
               <div style="display:Flex;justify-content:center;">
