@@ -2,6 +2,12 @@ const dropArea = document.querySelector(".blst-drag-area"),
     dragText = dropArea.querySelector(".blst-title"),
     button = dropArea.querySelector(".blst-button"),
     input = dropArea.querySelector(".blst-input");
+
+const example = document.querySelector("#example_href");
+if (example) {
+    example.href = `https://www.blstsecurity.com/ScanSwagger/6209ab14-089e-4108-8bb2-5b22deab9751?tab=Summary&promo=${document.getElementById("cyRefcode").attributes['data-ref'].value || 'blst'}&domain=${document.location.origin}`
+}
+
 let blstFile; //this is a global variable and we'll use it inside multiple functions
 
 input.addEventListener("change", (event) => {
