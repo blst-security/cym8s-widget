@@ -43,7 +43,7 @@ function showFile() {
                 body: JSON.stringify({ oas }),
             }).then((response) => response.json()).then((data) => {
                 const a = document.createElement("a");
-                a.href = `https://www.blstsecurity.com/ScanSwagger/${data.scan_id}?tab=Summary&promo=blst&domain=${document.location.origin}`;
+                a.href = `https://www.blstsecurity.com/ScanSwagger/${data.scan_id}?tab=Summary&promo=${document.getElementById("cyRefcode").attributes['data-ref'].value || 'blst'}&domain=${document.location.origin}`;
                 a.target = "_blank";
                 a.rel = "noopener noreferrer";
                 document.body.appendChild(a);
